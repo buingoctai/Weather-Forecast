@@ -1,0 +1,62 @@
+:root {
+  // font weight
+  --bold: 800;
+  --semibold: 600;
+  --medium: 400;
+  --backgroundarticle: #fcfaf6;
+}
+
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate-line {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px; /* fallback */
+  max-height: 32px; /* fallback */
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (min-width: 600px) {
+  #root {
+  }
+}
+
+@media screen and (min-width: 600px) and (max-height: 600px) {
+}
+
+.popover-backdrop {
+  background-color: initial !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--dark-grey-base);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-grey-300);
+}
+
+.flx-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flx-col {
+  flex-direction: column;
+}

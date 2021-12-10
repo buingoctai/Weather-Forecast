@@ -1,0 +1,18 @@
+.select-wrap__pop {
+  max-height: 200px;
+  width: 150px;
+  & > .select-wrap__option {
+    max-height: 200px;
+    overflow: auto;
+    & > .option__item {
+      display: inherit;
+      font-size: 16px;
+      color: var(--neutral-500);
+      line-height: 26px;
+      cursor: pointer;
+      &.selected {
+        opacity: 0.5;
+      }
+    }
+  }
+}

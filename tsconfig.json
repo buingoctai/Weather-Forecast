@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": false,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "srcRoot/*": ["src/*"],
+      "indexDB/*": ["src/core/databases/indexDB/*"]
+    },
+    "moduleResolution": "node"
+  },
+  "include": ["./src", "src/svg.d.ts", "src/jpg.d.ts", "src/png.d.ts", "src/gif.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

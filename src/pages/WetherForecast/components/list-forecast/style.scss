@@ -1,0 +1,12 @@
+.list-forecast {
+  flex-direction: row;
+  margin-top: 50px;
+  .forecast-day {
+    width: 120px;
+    height: 160px;
+    margin: 0px 6px;
+    background: var(--neutral-700);
+    color: var(--neutral-500);
+    font-size: 15px;
+  }
+}
