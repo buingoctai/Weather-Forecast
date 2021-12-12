@@ -30,4 +30,4 @@ The Weather Forecast App
 - Install packages: `yarn install`
 - Run: `yarn dev`
 
-7. #### Go Live:
+7. #### Go Live:https://weather-forecast-taibn-dev-y383c.ondigitalocean.app/
