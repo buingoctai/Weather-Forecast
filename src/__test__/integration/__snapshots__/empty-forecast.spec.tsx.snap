@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <EmptyForecast/> Matches snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="flx-center list-forecast flx-col"
+    >
+      <img
+        height="80"
+        src="test-file-stub"
+        width="80"
+      />
+      <h4
+        style="font-size: 15px;"
+      >
+        Empty Weather Forecast
+      </h4>
+    </div>
+  </div>
+</body>
+`;
