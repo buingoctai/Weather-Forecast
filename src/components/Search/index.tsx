@@ -17,7 +17,7 @@ interface Props {
 const Search = (props: Props, ref) => {
   const {
     text = '',
-    placeholder = '',
+    placeholder = 'Search',
     className = '',
     style = {},
     autoFocus = true,

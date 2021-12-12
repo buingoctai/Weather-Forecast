@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ParamsRequest } from './data-types';
-import {TIMEOUT_REQUEST} from './constants';
+import { TIMEOUT_REQUEST } from './constants';
 
 const request = (url: string, options: ParamsRequest) => {
   switch (options.method) {
@@ -26,7 +26,7 @@ const HandleStatus = (response) => {
   }
 };
 axios.interceptors.request.use((config) => {
-  return {...config, timeout: TIMEOUT_REQUEST};
+  return { ...config, timeout: TIMEOUT_REQUEST };
 });
 
 axios.interceptors.response.use(

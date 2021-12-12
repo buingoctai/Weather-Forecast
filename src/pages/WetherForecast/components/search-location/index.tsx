@@ -20,13 +20,14 @@ const SearchLocation = () => {
   const { processListLocation } = useCachedListLocation();
   const onStartingSearchList = useCallback(
     (e) => {
-      // getListLocation({ query: searchRef.current.value });
-      processListLocation(
-        setListLocation,
-        getListLocation,
-        listLocation,
-        {query:searchRef.current.value}
-      );
+       /*
+       Server doesn't support for empty area. 
+       A noti toast will display in this case.
+      */
+      getListLocation({ query: searchRef.current.value }); // Always fetch new list from sevver
+      // processListLocation(setListLocation, getListLocation, listLocation, { // Consider get from cache
+      //   query: searchRef.current.value,
+      // });
       openListPop(e);
     },
     [listLocation]
@@ -41,27 +42,14 @@ const SearchLocation = () => {
   */
   const onSelectLocation = useCallback((option: Option) => {
     searchRef.current.value = option.name;
-    
+
     closeListPop();
-    getListLocation({ query: option.name });
-    processListLocation(
-      setListLocation,
-      getListLocation,
-      listLocation,
-      {query:searchRef.current.value}
-    );
+    getListLocation({ query: option.name }); // Always fetch new list from sevver
+    // processListLocation(setListLocation, getListLocation, listLocation, { // Consider get from cache
+    //   query: searchRef.current.value, 
+    // });
     getWeatherForecast(`${option.id}`);
   }, []);
-
-  // Flow auto select nếu chỉ còn một auto chọn
-  // useEffect(() => {
-  //   if(listLocation?.data?.length === 1) {
-  //     const one = listLocation.data[0];
-  //     onSelectLocation({name:one.title, id:one.woeid});
-  //   }
-  //   console.log('taibnlogs',searchRef.current.value);
-
-  // },[searchRef.current]);
 
   return (
     <>

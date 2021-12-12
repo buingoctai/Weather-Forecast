@@ -11,8 +11,8 @@ const ForecastDay = (props: Props) => {
   return (
     <div className="forecast-day flx-center flx-col">
       <h4>{getDayOfWeek(day.applicable_date)}</h4>
-      <span>{Math.floor(day.min_temp)}</span>
-      <span>{Math.floor(day.max_temp)}</span>
+      <span>{`Min: ${Math.floor(day.min_temp)}`}</span>
+      <span>{`Max: ${Math.floor(day.max_temp)}`}</span>
     </div>
   );
 };

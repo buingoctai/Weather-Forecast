@@ -15,7 +15,7 @@ const useListlocationManager = () => {
   }, []);
   const closeListPop = useCallback(() => {
     const isOpened = PopoverManager.isVisible(LIST_LOCATION_POP_IDENTITY);
-    
+
     if (isOpened) PopoverManager.closePopover(LIST_LOCATION_POP_IDENTITY);
   }, []);
 
