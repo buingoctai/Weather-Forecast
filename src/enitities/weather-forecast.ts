@@ -13,13 +13,25 @@ interface Forecast {
   consolidated_weather: Array<OneDay>;
 }
 
-interface WeatherActions {
+export interface WeatherActions {
   setListLocation: (list: Array<object>) => void;
   getListLocation: ({ query: string }) => void;
   getWeatherForecast: (pathName: string) => void;
 }
+
+export interface ListLocationState {
+  loading: boolean;
+  data: Array<Location> | null;
+  error: object | null;
+}
+
+export interface WeatherForecastState {
+  loading: boolean;
+  data: Forecast | null;
+  error: object | null;
+}
 export interface WeatherState {
-  listLocation?: { loading: boolean; data: Array<Location> | null; error: object | null };
-  weatherForecast?: { loading: boolean; data: Forecast | null; error: object | null };
+  listLocation?: ListLocationState;
+  weatherForecast?: WeatherForecastState;
   weatherActions?: WeatherActions;
 }

@@ -1,33 +1,31 @@
 class LogSytem {
-  log(text: string) {
+  static log(text: string) {
     console.log(text);
   }
 
-  logError(text: string) {
+  static logError(text: string) {
     console.error(text);
   }
 
-  logWarning(text: string) {
+  static logWarning(text: string) {
     console.warn(text);
   }
 
-  logTrace(text: string) {
+  static logTrace(text: string) {
     console.trace(text);
   }
 
-  logTable(data: object) {
+  static logTable(data: object) {
     console.table(data);
   }
 
-  logTimeStart() {
+  static logTimeStart() {
     console.time();
   }
 
-  logTimeEnd() {
+  static logTimeEnd() {
     console.timeEnd();
   }
 }
 
-const logSystem = new LogSytem();
-
-export default logSystem;
+export default LogSytem;

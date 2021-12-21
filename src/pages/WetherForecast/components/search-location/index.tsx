@@ -4,23 +4,28 @@ import useDebounceSearch from '../../hooks/use-debounce-search';
 import useCachedListLocation from '../../hooks/use-cached-list-location';
 
 import Search from 'srcRoot/components/Search';
-import { WeatherContext } from 'srcRoot/context/stores/WeatherStore';
-import { WeatherState } from 'srcRoot/enitities/weather-forecast';
 import ListLocation from '../list-location';
 import { Option } from 'srcRoot/components/Options';
+import { ListLocationState, WeatherActions } from 'srcRoot/enitities/weather-forecast';
+import LogSytem from 'srcRoot/utils/log-system';
 import './style.scss';
 
-const SearchLocation = () => {
+interface Props {
+  listLocation: ListLocationState;
+  weatherActions: WeatherActions;
+}
+const SearchLocation = (props: Props) => {
+  LogSytem.log('Re-render: [Search-Location]');
   const searchRef = useRef(null);
   const {
     listLocation,
     weatherActions: { setListLocation, getListLocation, getWeatherForecast },
-  }: WeatherState = useContext(WeatherContext);
+  } = props;
 
   const { processListLocation } = useCachedListLocation();
   const onStartingSearchList = useCallback(
     (e) => {
-       /*
+      /*
        Server doesn't support for empty area. 
        A noti toast will display in this case.
       */
@@ -46,7 +51,7 @@ const SearchLocation = () => {
     closeListPop();
     getListLocation({ query: option.name }); // Always fetch new list from sevver
     // processListLocation(setListLocation, getListLocation, listLocation, { // Consider get from cache
-    //   query: searchRef.current.value, 
+    //   query: searchRef.current.value,
     // });
     getWeatherForecast(`${option.id}`);
   }, []);
@@ -63,7 +68,7 @@ const SearchLocation = () => {
           onClick={openListPop}
         />
       </div>
-      <ListLocation onSelectLocation={onSelectLocation} />
+      <ListLocation listLocation={listLocation} onSelectLocation={onSelectLocation} />
     </>
   );
 };

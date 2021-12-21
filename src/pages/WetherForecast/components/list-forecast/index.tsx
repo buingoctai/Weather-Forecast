@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
-import { WeatherContext } from 'srcRoot/context/stores/WeatherStore';
-import { WeatherState } from 'srcRoot/enitities/weather-forecast';
+import React from 'react';
 import ListDay from './components/list-day';
 import EmptyForecast from './components/empty-forecast';
+import { WeatherForecastState } from 'srcRoot/enitities/weather-forecast';
+import LogSytem from 'srcRoot/utils/log-system';
 
 import './style.scss';
 
-const ListForecast = () => {
+interface Props {
+  weatherForecast: WeatherForecastState;
+}
+const ListForecast = (props: Props) => {
+  LogSytem.log('Re-render: [List-Forecast]');
   const {
     weatherForecast: { loading, data, error },
-  }: WeatherState = useContext(WeatherContext);
+  } = props;
   if (!loading && !data && !error) return <EmptyForecast />;
 
   return <ListDay isLoading={loading} enableSkeleton days={data?.consolidated_weather || []} />;

@@ -3,6 +3,7 @@ import SkeletonDay, { skeletonData } from './skeleton-day';
 import ForecastDay from './forecast-day';
 import { OneDay } from 'srcRoot/enitities/weather-forecast';
 import EmptyForecast from './empty-forecast';
+import LogSytem from 'srcRoot/utils/log-system';
 
 interface Props {
   isLoading?: boolean;
@@ -10,6 +11,7 @@ interface Props {
   days: Array<OneDay>;
 }
 const ListDay = (props: Props) => {
+  LogSytem.log('Re-render: [List-Forecast]=>[List-Day]');
   const { isLoading, enableSkeleton, days } = props;
 
   if (isLoading && enableSkeleton) {
@@ -30,7 +32,6 @@ const ListDay = (props: Props) => {
       </div>
     );
   }
-
   if (days.length === 0) return <EmptyForecast />;
 
   return null;
